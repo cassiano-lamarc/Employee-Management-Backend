@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using SoftwareMind.Backend.Employees.Infrasctructure.Context;
+using SoftwareMind.Backend.Employees.Infrasctructure.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddInfrastructure();
 
 builder.Services.AddControllers();
 

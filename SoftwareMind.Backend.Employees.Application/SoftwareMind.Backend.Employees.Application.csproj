@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\" />
+    <ProjectReference Include="..\SoftwareMind.Backend.Employees.Domain\SoftwareMind.Backend.Employees.Domain.csproj" />
   </ItemGroup>
 
 </Project>
