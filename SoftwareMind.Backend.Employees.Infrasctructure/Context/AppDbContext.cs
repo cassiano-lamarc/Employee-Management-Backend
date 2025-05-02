@@ -1,0 +1,18 @@
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace SoftwareMind.Backend.Employees.Infrasctructure.Context;
+
+public class AppDbContext : DbContext
+{
+    public DbSet<Domain.Entities.Employee> Employees { get; set; }
+    public DbSet<Domain.Entities.Department> Departments { get; set; }
+
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+
+        base.OnModelCreating(modelBuilder);
+    }
+}

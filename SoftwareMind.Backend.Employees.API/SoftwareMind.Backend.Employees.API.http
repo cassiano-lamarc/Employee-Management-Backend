@@ -1,6 +1,0 @@
-@SoftwareMind.Backend.Employees.API_HostAddress = http://localhost:5207
-
-GET {{SoftwareMind.Backend.Employees.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
