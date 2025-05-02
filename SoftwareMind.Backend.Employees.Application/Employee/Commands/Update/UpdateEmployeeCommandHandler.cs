@@ -14,7 +14,7 @@ public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeComman
 
     public async Task<bool> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
     {
-        var employee = Domain.Entities.Employee.Update(request.id, request.firstName, request.lastName, request.phone, request.departmentId, request.hireDate, request.address)
+        var employee = Domain.Entities.Employee.Update(request.id, request.firstName, request.lastName, request.phone, request.departmentId, request.hireDate, request.address);
         _unitOfWork.Employees.Update(employee);
         await _unitOfWork.CommitAsync();
 
