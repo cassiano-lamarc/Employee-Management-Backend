@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="Employee\Queries\GetById\" />
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 
 </Project>
