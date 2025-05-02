@@ -5,7 +5,7 @@ using SoftwareMind.Backend.Employees.Infrasctructure.Repositories;
 
 namespace SoftwareMind.Backend.Employees.Infrasctructure.Configurations;
 
-public static class DependecyInjectionsConfigurations
+public static class DependencyInjectionsConfigurations
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {

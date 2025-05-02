@@ -11,6 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
       <PrivateAssets>all</PrivateAssets>
@@ -25,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SoftwareMind.Backend.Employees.Application\SoftwareMind.Backend.Employees.Application.csproj" />
     <ProjectReference Include="..\SoftwareMind.Backend.Employees.Domain\SoftwareMind.Backend.Employees.Domain.csproj" />
     <ProjectReference Include="..\SoftwareMind.Backend.Employees.Infrasctructure\SoftwareMind.Backend.Employees.Infrasctructure.csproj" />
   </ItemGroup>
