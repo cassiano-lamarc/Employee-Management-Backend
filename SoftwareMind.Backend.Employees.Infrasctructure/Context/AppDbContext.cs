@@ -6,6 +6,7 @@ public class AppDbContext : DbContext
 {
     public DbSet<Domain.Entities.Employee> Employees { get; set; }
     public DbSet<Domain.Entities.Department> Departments { get; set; }
+    public DbSet<Domain.Entities.User> Users { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
