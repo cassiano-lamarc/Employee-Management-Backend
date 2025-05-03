@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SoftwareMind.Backend.Employees.Infrasctructure.Context;
 using SoftwareMind.Backend.Employees.Infrasctructure.Configurations;
 using SoftwareMind.Backend.Employees.Application.Configurations;
+using SoftwareMind.Backend.Employees.API.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructure();
 builder.Services.AddApplicationMediatR();
 builder.Services.AddApplicationServices();
+builder.Services.AddAuthorizationsServices(builder.Configuration);
 
 builder.Services.AddControllers();
 

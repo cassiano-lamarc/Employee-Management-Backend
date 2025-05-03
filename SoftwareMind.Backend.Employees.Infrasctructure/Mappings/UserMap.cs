@@ -13,6 +13,7 @@ public class UserMap : IEntityTypeConfiguration<User>
         builder.HasKey(u => u.Id);
 
         builder.Property(u => u.Id)
+            .HasDefaultValueSql("gen_random_uuid()")
             .ValueGeneratedOnAdd();
 
         builder.Property(u => u.Login)

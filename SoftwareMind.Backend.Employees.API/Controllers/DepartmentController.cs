@@ -1,7 +1,9 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SoftwareMind.Backend.Employees.Application.Departments.Queries.GetAll;
 using SoftwareMind.Backend.Employees.Domain.Entities;
+using SoftwareMind.Backend.Employees.Domain.Enums;
 
 namespace SoftwareMind.Backend.Employees.API.Controllers;
 
@@ -14,6 +16,7 @@ public class DepartmentController : BaseController
         _mediator = mediator;
     }
 
+    [Authorize(Roles = $"{Roles.Reader}, {Roles.Creater}")]
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Department>))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]

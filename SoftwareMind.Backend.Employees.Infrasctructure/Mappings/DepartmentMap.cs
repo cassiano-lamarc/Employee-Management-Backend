@@ -13,6 +13,7 @@ public class DepartmentMap : IEntityTypeConfiguration<Department>
         builder.HasKey(d => d.Id);
 
         builder.Property(d => d.Id)
+            .HasDefaultValueSql("gen_random_uuid()")
             .ValueGeneratedOnAdd();
 
         builder.Property(d => d.Description)

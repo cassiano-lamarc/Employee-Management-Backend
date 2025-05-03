@@ -13,6 +13,7 @@ public class EmployeeMap : IEntityTypeConfiguration<Employee>
         builder.HasKey(e => e.Id);
 
         builder.Property(e => e.Id)
+            .HasDefaultValueSql("gen_random_uuid()")
             .ValueGeneratedOnAdd();
 
         builder.Property(e => e.FirstName)
