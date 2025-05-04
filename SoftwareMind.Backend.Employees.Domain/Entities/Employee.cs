@@ -21,8 +21,9 @@ public class Employee
 
     protected Employee() { }
 
-    private Employee(string firstName, string lastName, string phone, Guid departmentId, Guid createdUserId, Guid? updatedUserId = null, DateTime ? hireDate = null, Address? address = null)
+    private Employee(Guid id, string firstName, string lastName, string phone, Guid departmentId, Guid createdUserId, Guid? updatedUserId = null, DateTime ? hireDate = null, Address? address = null)
     {
+        Id = id;
         FirstName = firstName;
         LastName = lastName;
         Phone = phone;
@@ -39,7 +40,7 @@ public class Employee
 
     public static Employee Create(string firstName, string lastName, string phone, Guid departmentId, Guid createdUserId, DateTime? hireDate = null, Address? address = null)
     {
-        return new Employee(firstName, lastName, phone, departmentId, createdUserId, null, hireDate, address);
+        return new Employee(Guid.NewGuid(), firstName, lastName, phone, departmentId, createdUserId, null, hireDate, address);
     }
 
     public void Update(string firstName, string lastName, string phone, Guid departmentId, Guid updatedUserId)
