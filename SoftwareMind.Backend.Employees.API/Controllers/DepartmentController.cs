@@ -16,7 +16,6 @@ public class DepartmentController : BaseController
         _mediator = mediator;
     }
 
-    [Authorize(Roles = $"{Roles.Reader}, {Roles.Creater}")]
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Department>))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
