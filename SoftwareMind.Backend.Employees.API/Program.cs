@@ -12,9 +12,7 @@ builder.Services.AddApplicationMediatR();
 builder.Services.AddApplicationServices();
 builder.Services.AddAuthorizationsServices(builder.Configuration);
 builder.Services.AddSwaggerConfigurations();
-
 builder.Services.AddControllers();
-
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -40,6 +38,7 @@ using (var scope = app.Services.CreateScope())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

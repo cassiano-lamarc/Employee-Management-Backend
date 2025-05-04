@@ -19,6 +19,22 @@ public static class SwaggerConfigurations
                 In = ParameterLocation.Header,
                 Description = "Insert the token JWT formatted as: Bearer {your token}"
             });
+
+            c.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+              {
+                new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    Array.Empty<string>()
+                }
+            });
+
         });
 
         return services;
