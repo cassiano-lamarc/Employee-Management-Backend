@@ -1,4 +1,5 @@
-﻿using SoftwareMind.Backend.Employees.Domain.ObjectValue;
+﻿using SoftwareMind.Backend.Employees.Domain.Exceptions;
+using SoftwareMind.Backend.Employees.Domain.ObjectValue;
 
 namespace SoftwareMind.Backend.Employees.Domain.Entities;
 
@@ -33,8 +34,8 @@ public class Employee
         CreatedUserId = createdUserId;
         UpdatedUserId = updatedUserId;
 
-        if (string.IsNullOrWhiteSpace(firstName)) throw new ArgumentException("First name is required");
-        if (departmentId == Guid.Empty) throw new ArgumentException("Department is required");
+        if (string.IsNullOrWhiteSpace(firstName)) throw new BusinessException("First name is required");
+        if (departmentId == Guid.Empty) throw new BusinessException("Department is required");
     }
 
 

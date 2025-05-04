@@ -1,5 +1,6 @@
 ﻿using Moq;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
+using SoftwareMind.Backend.Employees.Domain.Exceptions;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
 using Xunit;
@@ -44,7 +45,7 @@ public class CreateEmployeerCommandHandlerTest
         var handler = new CreateEmployeeCommandHandler(_unitOfWorkMock.Object, _currentServiceMock.Object);
 
         //act
-        var exception = await Assert.ThrowsAsync<ArgumentException>(() => handler.Handle(command, CancellationToken.None));
+        var exception = await Assert.ThrowsAsync<BusinessException>(() => handler.Handle(command, CancellationToken.None));
 
         //assert
         Assert.Equal("First name is required", exception.Message);

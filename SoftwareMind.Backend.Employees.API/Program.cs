@@ -10,10 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructure();
 builder.Services.AddApplicationMediatR();
 builder.Services.AddApplicationServices();
+
 builder.Services.AddAuthorizationsServices(builder.Configuration);
 builder.Services.AddSwaggerConfigurations();
+
 builder.Services.AddControllers();
+
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -40,6 +46,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseExceptionHandler();
 
 app.MapControllers();
 
