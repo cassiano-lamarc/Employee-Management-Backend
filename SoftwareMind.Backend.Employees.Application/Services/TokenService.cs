@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using SoftwareMind.Backend.Employees.Domain.DTO;
 using SoftwareMind.Backend.Employees.Domain.Entities;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,7 +18,7 @@ public class TokenService : ITokenService
         _configuration = configuration;
     }
 
-    public string GenerateToken(User user)
+    public LoginResponseDTO GenerateToken(User user)
     {
         var claims = new[]
         {
@@ -36,6 +37,8 @@ public class TokenService : ITokenService
             signingCredentials: creds
         );
 
-        return new JwtSecurityTokenHandler().WriteToken(token);
+        var response = new LoginResponseDTO { Token = new JwtSecurityTokenHandler().WriteToken(token), UserName = user.UserName };
+
+        return response;
     }
 }

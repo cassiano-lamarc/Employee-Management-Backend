@@ -1,8 +1,9 @@
-﻿using SoftwareMind.Backend.Employees.Domain.Entities;
+﻿using SoftwareMind.Backend.Employees.Domain.DTO;
+using SoftwareMind.Backend.Employees.Domain.Entities;
 
 namespace SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
 
 public interface ITokenService
 {
-    public string GenerateToken(User user);
+    public LoginResponseDTO GenerateToken(User user);
 }

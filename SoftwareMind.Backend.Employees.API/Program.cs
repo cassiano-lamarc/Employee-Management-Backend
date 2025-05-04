@@ -6,6 +6,15 @@ using SoftwareMind.Backend.Employees.API.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFull",
+        policy => policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+    );
+});
 // Add services to the container.
 builder.Services.AddInfrastructure();
 builder.Services.AddApplicationMediatR();
@@ -27,6 +36,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
+
+app.UseCors("AllowFull");
 
 var imageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "employees");
 

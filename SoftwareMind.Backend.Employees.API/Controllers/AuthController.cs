@@ -20,6 +20,9 @@ public class AuthController : BaseController
 
     [AllowAnonymous]
     [HttpPost("login")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LoginResponseDTO))]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     public async Task<IActionResult> Login(LoginRequestDTO request)
     {
         var user = await _userRepository.GetByLogin(request);
@@ -27,7 +30,7 @@ public class AuthController : BaseController
         if (user == null)
             return Unauthorized("Invalid Credentials");
 
-        var token = _tokenService.GenerateToken(user);
-        return Ok(new { token });
+        var responseDTO = _tokenService.GenerateToken(user);
+        return Ok(responseDTO);
     }
 }
