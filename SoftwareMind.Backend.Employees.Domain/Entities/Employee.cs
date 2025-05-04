@@ -16,7 +16,7 @@ public class Employee
     public DateTime CreatedDate { get; }
     public Guid CreatedUserId { get; private set; }
     public Guid? UpdatedUserId { get; private set; }
-    public string AvatarUrl { get; private set; }
+    public string? AvatarUrl { get; private set; }
 
     public virtual Department Department { get; private set; }
     public virtual User CreatedUser { get; private set; }
