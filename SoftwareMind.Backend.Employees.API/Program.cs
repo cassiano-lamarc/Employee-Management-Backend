@@ -28,6 +28,13 @@ builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
+var imageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "employees");
+
+if (!Directory.Exists(imageDirectory))
+{
+    Directory.CreateDirectory(imageDirectory);
+}
+
 if (!app.Environment.IsProduction())
 {
     app.UseSwagger();

@@ -17,7 +17,7 @@ public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeComman
 
     public async Task<bool> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
     {
-        var employeeDB = await _unitOfWork.Employees.GetByIdTracked(request.id);
+        var employeeDB = await _unitOfWork.Employees.GetByIdAsync(request.id);
         if (employeeDB == null)
             throw new ArgumentNullException("Employee not found");
 

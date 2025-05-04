@@ -16,6 +16,9 @@ public class EmployeeMap : IEntityTypeConfiguration<Employee>
             .HasDefaultValueSql("gen_random_uuid()")
             .ValueGeneratedOnAdd();
 
+        builder.Property(e => e.Number)
+            .ValueGeneratedOnAdd();
+
         builder.Property(e => e.FirstName)
             .IsRequired()
             .HasMaxLength(100);
@@ -26,6 +29,9 @@ public class EmployeeMap : IEntityTypeConfiguration<Employee>
         builder.Property(e => e.HireDate)
             .IsRequired()
             .HasDefaultValueSql("NOW()");
+
+        builder.Property(e => e.AvatarUrl)
+            .HasMaxLength(500);
 
         builder.Property(e => e.DeparmentId)
             .IsRequired();

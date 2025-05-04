@@ -6,6 +6,7 @@ namespace SoftwareMind.Backend.Employees.Domain.Entities;
 public class Employee
 {
     public Guid Id { get; private set; }
+    public int Number { get; private set; }
     public string FirstName { get; private set; }
     public string? LastName { get; private set; }
     public DateTime? HireDate { get; private set; }
@@ -15,6 +16,7 @@ public class Employee
     public DateTime CreatedDate { get; }
     public Guid CreatedUserId { get; private set; }
     public Guid? UpdatedUserId { get; private set; }
+    public string AvatarUrl { get; private set; }
 
     public virtual Department Department { get; private set; }
     public virtual User CreatedUser { get; private set; }
@@ -52,4 +54,6 @@ public class Employee
         DeparmentId = departmentId;
         UpdatedUserId = updatedUserId;
     }
+
+    public void UpdateAvatarUrl(string url) => AvatarUrl = url;
 }

@@ -10,6 +10,8 @@ public static class DependencyInjectionServices
     {
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
+        services.AddScoped<IUploadFileService, UploadFileService>();
+
         return services;
     }
 

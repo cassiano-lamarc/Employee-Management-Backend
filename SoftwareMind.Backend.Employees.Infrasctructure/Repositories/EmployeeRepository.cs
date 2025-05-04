@@ -22,6 +22,4 @@ public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
                 (!departmentId.HasValue || x.DeparmentId == departmentId.Value))
             .ToListAsync();
      }
-
-    public async Task<Employee?> GetByIdTracked(Guid id) => await _dbSet.FirstOrDefaultAsync(e => e.Id.Equals(id));
 }

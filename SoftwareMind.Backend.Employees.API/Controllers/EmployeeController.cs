@@ -1,21 +1,22 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Delete;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Update;
 using SoftwareMind.Backend.Employees.Application.Employee.Queries.GetByQuery;
-using SoftwareMind.Backend.Employees.Domain.Enums;
+using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
 
 namespace SoftwareMind.Backend.Employees.API.Controllers;
 
 public class EmployeeController : BaseController
 {
     private readonly IMediator _mediator;
+    private readonly IUploadFileService _uploadFileService;
 
-    public EmployeeController(IMediator mediator)
+    public EmployeeController(IMediator mediator, IUploadFileService uploadFileService)
     {
         _mediator = mediator;
+        _uploadFileService = uploadFileService;
     }
 
     [HttpPost]
@@ -55,4 +56,11 @@ public class EmployeeController : BaseController
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     public async Task<IActionResult> DeleteEmployee([FromRoute] Guid id)
         => Ok(await _mediator.Send(new DeleteEmployeeCommand(id)));
+
+    [HttpPost("upload-avatar/{employeeId}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
+    public async Task<IActionResult> UploadAvatar(IFormFile file, [FromRoute] string employeeId)
+        => Ok(await _uploadFileService.UploadAvatar(file, Guid.Parse(employeeId)));
 }
