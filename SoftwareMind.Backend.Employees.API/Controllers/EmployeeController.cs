@@ -30,7 +30,7 @@ public class EmployeeController : BaseController
     }
 
     [HttpGet("/{id}")]
-    [Authorize(Roles = $"{Roles.Reader}, {Roles.Creater}")]
+    [Authorize(Roles = $"{Roles.Reader},{Roles.Creater}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Domain.Entities.Employee))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
@@ -38,7 +38,7 @@ public class EmployeeController : BaseController
         => Ok(await _mediator.Send(new GetEmployeeQuery(id)));
 
     [HttpGet]
-    [Authorize(Roles = $"{Roles.Reader}, {Roles.Creater}")]
+    [Authorize(Roles = $"{Roles.Reader},{Roles.Creater}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Domain.Entities.Employee>))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]

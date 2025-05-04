@@ -11,6 +11,7 @@ builder.Services.AddInfrastructure();
 builder.Services.AddApplicationMediatR();
 builder.Services.AddApplicationServices();
 builder.Services.AddAuthorizationsServices(builder.Configuration);
+builder.Services.AddSwaggerConfigurations();
 
 builder.Services.AddControllers();
 
