@@ -36,5 +36,13 @@ public class EmployeeMap : IEntityTypeConfiguration<Employee>
         builder.HasOne(e => e.Department)
             .WithMany(d => d.Employees)
             .HasForeignKey(e => e.DeparmentId);
+
+        builder.HasOne(e => e.CreatedUser)
+            .WithMany(u => u.CreatedEmployees)
+            .HasForeignKey(e => e.CreatedUserId);
+
+        builder.HasOne(e => e.UpdatedUser)
+            .WithMany(u => u.UpdatedEmployees)
+            .HasForeignKey(e => e.UpdatedUserId);
     }
 }

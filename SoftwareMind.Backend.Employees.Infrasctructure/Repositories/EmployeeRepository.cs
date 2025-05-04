@@ -12,7 +12,7 @@ public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
     public async Task<List<Employee>> GetByFilter(Guid? id = null, string? firstName = null, string? lastName = null,
             DateTime? dateHireStart = null, DateTime? dateHireEnd = null, Guid? departmentId = null)
     {
-        return await _context.Employees
+        return await _dbSet.AsNoTracking()
             .Where(x =>
                 (!id.HasValue || x.Id == id) &&
                 (string.IsNullOrEmpty(firstName) || x.FirstName.Contains(firstName)) &&
@@ -22,4 +22,6 @@ public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
                 (!departmentId.HasValue || x.DeparmentId == departmentId.Value))
             .ToListAsync();
      }
+
+    public async Task<Employee?> GetByIdTracked(Guid id) => await _dbSet.FirstOrDefaultAsync(e => e.Id.Equals(id));
 }

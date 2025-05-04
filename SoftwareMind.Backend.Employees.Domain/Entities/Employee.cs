@@ -11,33 +11,43 @@ public class Employee
     public Guid DeparmentId { get; private set; }
     public string? Phone { get; private set; }
     public Address? Addresss { get; private set; }
+    public DateTime CreatedDate { get; }
+    public Guid CreatedUserId { get; private set; }
+    public Guid? UpdatedUserId { get; private set; }
 
-    public virtual Department? Department { get; private set; }
+    public virtual Department Department { get; private set; }
+    public virtual User CreatedUser { get; private set; }
+    public virtual User? UpdatedUser { get; private set; }
 
     protected Employee() { }
 
-    private Employee(Guid id, string firstName, string lastName, string phone, Guid departmentId, DateTime? hireDate = null, Address? address = null)
+    private Employee(string firstName, string lastName, string phone, Guid departmentId, Guid createdUserId, Guid? updatedUserId = null, DateTime ? hireDate = null, Address? address = null)
     {
-        Id = id;
         FirstName = firstName;
         LastName = lastName;
         Phone = phone;
         DeparmentId = departmentId;
         HireDate = hireDate;
         Addresss = address;
+        CreatedUserId = createdUserId;
+        UpdatedUserId = updatedUserId;
 
         if (string.IsNullOrWhiteSpace(firstName)) throw new ArgumentException("First name is required");
         if (departmentId == Guid.Empty) throw new ArgumentException("Department is required");
     }
 
-    public static Employee Create(string firstName, string lastName, string phone, Guid departmentId, DateTime? hireDate = null, Address? address = null)
+
+    public static Employee Create(string firstName, string lastName, string phone, Guid departmentId, Guid createdUserId, DateTime? hireDate = null, Address? address = null)
     {
-        var id = Guid.NewGuid();
-        return new Employee(id, firstName, lastName, phone, departmentId, hireDate, address);
+        return new Employee(firstName, lastName, phone, departmentId, createdUserId, null, hireDate, address);
     }
 
-    public static Employee Update(Guid id, string firstName, string lastName, string phone, Guid departmentId, DateTime? hireDate = null, Address? address = null)
+    public void Update(string firstName, string lastName, string phone, Guid departmentId, Guid updatedUserId)
     {
-        return new Employee(id, firstName, lastName, phone, departmentId, hireDate, address);
+        FirstName = firstName;
+        LastName = lastName;
+        Phone = phone;
+        DeparmentId = departmentId;
+        UpdatedUserId = updatedUserId;
     }
 }

@@ -18,8 +18,8 @@ public class EmployeeController : BaseController
         _mediator = mediator;
     }
 
-    [Authorize(Roles = Roles.Creater)]
     [HttpPost]
+    [Authorize(Roles = Roles.Creater)]
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
@@ -29,33 +29,32 @@ public class EmployeeController : BaseController
         Created();
     }
 
-    [Authorize(Roles = $"{Roles.Reader}, {Roles.Creater}")]
     [HttpGet("/{id}")]
+    [Authorize(Roles = $"{Roles.Reader}, {Roles.Creater}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Domain.Entities.Employee))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     public async Task<IActionResult> GetById([FromRoute] Guid id)
         => Ok(await _mediator.Send(new GetEmployeeQuery(id)));
 
-
-    [Authorize(Roles = $"{Roles.Reader}, {Roles.Creater}")]
     [HttpGet]
+    [Authorize(Roles = $"{Roles.Reader}, {Roles.Creater}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Domain.Entities.Employee>))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     public async Task<IActionResult> GetEmployees([FromQuery] GetEmployeeQuery getEmployeeQuery)
         => Ok(await _mediator.Send(getEmployeeQuery));
 
-    [Authorize(Roles = Roles.Creater)]
     [HttpPut]
+    [Authorize(Roles = Roles.Creater)]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Domain.Entities.Employee))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     public async Task<IActionResult> CreateEmployee([FromBody] UpdateEmployeeCommand updateRequest)
     => Ok(await _mediator.Send(updateRequest));
 
-    [Authorize(Roles = Roles.Creater)]
     [HttpDelete("/{id}")]
+    [Authorize(Roles = Roles.Creater)]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
