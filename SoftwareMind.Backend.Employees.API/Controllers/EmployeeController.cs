@@ -29,7 +29,7 @@ public class EmployeeController : BaseController
         Created();
     }
 
-    [HttpGet("/{id}")]
+    [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Domain.Entities.Employee))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
@@ -50,12 +50,12 @@ public class EmployeeController : BaseController
     public async Task<IActionResult> CreateEmployee([FromBody] UpdateEmployeeCommand updateRequest)
     => Ok(await _mediator.Send(updateRequest));
 
-    [HttpDelete("/{id}")]
+    [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
-    public async Task<IActionResult> DeleteEmployee([FromRoute] Guid id)
-        => Ok(await _mediator.Send(new DeleteEmployeeCommand(id)));
+    public async Task<IActionResult> DeleteEmployee([FromRoute] string id)
+        => Ok(await _mediator.Send(new DeleteEmployeeCommand(Guid.Parse(id))));
 
     [HttpPost("upload-avatar/{employeeId}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
