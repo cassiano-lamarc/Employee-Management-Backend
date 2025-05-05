@@ -46,11 +46,8 @@ public class Employee
         return new Employee(Guid.NewGuid(), firstName, lastName, phone, departmentId, createdUserId, null, hireDate, address);
     }
 
-    public void Update(string firstName, string lastName, string phone, Guid departmentId, Guid updatedUserId)
+    public void UpdateDepartment(Guid departmentId, Guid updatedUserId)
     {
-        FirstName = firstName;
-        LastName = lastName;
-        Phone = phone;
         DeparmentId = departmentId;
         UpdatedUserId = updatedUserId;
     }

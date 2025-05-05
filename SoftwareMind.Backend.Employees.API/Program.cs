@@ -37,6 +37,8 @@ builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 app.UseCors("AllowFull");
 
 var imageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "employees");

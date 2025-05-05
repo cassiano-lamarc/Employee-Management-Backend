@@ -22,4 +22,12 @@ public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
                 (!departmentId.HasValue || x.DeparmentId == departmentId.Value))
             .ToListAsync();
      }
+
+    public async Task<Employee> GetWithIncludes(Guid id)
+        => await _dbSet
+        .AsNoTracking()
+        .Where(x => x.Id.Equals(id))
+        .Include(x => x.Department)
+        .Include(x => x.Addresss)
+        .FirstOrDefaultAsync();
 }

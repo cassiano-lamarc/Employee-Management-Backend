@@ -22,6 +22,7 @@ public class UploadFileService : IUploadFileService
         var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "employees");
         var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
         var filePath = Path.Combine(folderPath, fileName);
+        var fileExtension = Path.GetExtension(fileName);
 
         await using var stream = new FileStream(filePath, FileMode.Create);
         await file.CopyToAsync(stream);

@@ -21,7 +21,7 @@ public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeComman
         if (employeeDB == null)
             throw new ArgumentNullException("Employee not found");
 
-        employeeDB.Update(request.firstName, request.lastName, request.phone, request.departmentId, Guid.Parse(_currentUserService.UserId!));
+        employeeDB.UpdateDepartment(request.departmentId, Guid.Parse(_currentUserService.UserId!));
         _unitOfWork.Employees.Update(employeeDB);
         await _unitOfWork.CommitAsync();
 

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Delete;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Update;
+using SoftwareMind.Backend.Employees.Application.Employee.Queries.GetById;
 using SoftwareMind.Backend.Employees.Application.Employee.Queries.GetByQuery;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
 
@@ -20,34 +21,31 @@ public class EmployeeController : BaseController
     }
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(string))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
-    public async Task CreateEmployee([FromBody] CreateEmployeeCommand createRequest)
-    {
-        await _mediator.Send(createRequest);
-        Created();
-    }
+    public async Task<IActionResult> CreateEmployee([FromBody] CreateEmployeeCommand createRequest, CancellationToken cancellationToken)
+        => Ok(await _mediator.Send(createRequest));
 
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Domain.Entities.Employee))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
-    public async Task<IActionResult> GetById([FromRoute] Guid id)
-        => Ok(await _mediator.Send(new GetEmployeeQuery(id)));
+    public async Task<IActionResult> GetById([FromRoute] string id)
+        => Ok(await _mediator.Send(new GetEmployeeByIdQuery(Guid.Parse(id))));
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Domain.Entities.Employee>))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
-    public async Task<IActionResult> GetEmployees([FromQuery] GetEmployeeQuery getEmployeeQuery)
+    public async Task<IActionResult> GetEmployees([FromQuery] GetEmployeeQuery getEmployeeQuery, CancellationToken cancellationToken)
         => Ok(await _mediator.Send(getEmployeeQuery));
 
-    [HttpPut]
+    [HttpPatch]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Domain.Entities.Employee))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
-    public async Task<IActionResult> CreateEmployee([FromBody] UpdateEmployeeCommand updateRequest)
+    public async Task<IActionResult> UpdateEmployee([FromBody] UpdateEmployeeCommand updateRequest, CancellationToken cancellationToken)
     => Ok(await _mediator.Send(updateRequest));
 
     [HttpDelete("{id}")]
@@ -61,6 +59,6 @@ public class EmployeeController : BaseController
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
-    public async Task<IActionResult> UploadAvatar(IFormFile file, [FromRoute] string employeeId)
+    public async Task<IActionResult> UploadAvatar(IFormFile file, [FromRoute] string employeeId, CancellationToken cancellationToken)
         => Ok(await _uploadFileService.UploadAvatar(file, Guid.Parse(employeeId)));
 }
