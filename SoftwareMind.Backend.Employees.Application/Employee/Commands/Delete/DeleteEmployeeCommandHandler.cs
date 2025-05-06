@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SoftwareMind.Backend.Employees.Domain.Exceptions;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
 
 namespace SoftwareMind.Backend.Employees.Application.Employee.Commands.Delete;
@@ -16,7 +17,7 @@ public class DeleteEmployeeCommandHandler : IRequestHandler<DeleteEmployeeComman
     {
         var employee = await _unitOfWork.Employees.GetByIdAsync(request.id);
         if (employee == null)
-            new ArgumentNullException("Employee not found");
+            throw new BusinessException("Employee not found");
 
         _unitOfWork.Employees.Remove(employee!);
         await _unitOfWork.CommitAsync();

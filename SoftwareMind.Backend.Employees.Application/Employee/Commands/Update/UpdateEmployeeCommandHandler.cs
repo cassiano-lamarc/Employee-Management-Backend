@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SoftwareMind.Backend.Employees.Domain.Exceptions;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
 
@@ -19,7 +20,7 @@ public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeComman
     {
         var employeeDB = await _unitOfWork.Employees.GetByIdAsync(request.id);
         if (employeeDB == null)
-            throw new ArgumentNullException("Employee not found");
+            throw new BusinessException("Employee not found");
 
         employeeDB.UpdateDepartment(request.departmentId, Guid.Parse(_currentUserService.UserId!));
         _unitOfWork.Employees.Update(employeeDB);

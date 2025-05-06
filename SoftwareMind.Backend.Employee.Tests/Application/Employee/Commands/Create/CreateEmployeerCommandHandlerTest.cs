@@ -9,7 +9,6 @@ namespace SoftwareMind.Backend.Employees.Tests.Application.Employee.Commands.Cre
 
 public class CreateEmployeerCommandHandlerTest
 {
-    private readonly Mock<IEmployeeRepository> _repositoryMock = new();
     private readonly Mock<IUnitOfWork> _unitOfWorkMock = new();
     private readonly Mock<ICurrentUserService> _currentServiceMock = new();
     private readonly Mock<IEmployeeRepository> _employeeRepository = new();
