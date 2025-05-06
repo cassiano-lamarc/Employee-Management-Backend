@@ -3,6 +3,7 @@ using SoftwareMind.Backend.Employees.Infrasctructure.Context;
 using SoftwareMind.Backend.Employees.Infrasctructure.Configurations;
 using SoftwareMind.Backend.Employees.Application.Configurations;
 using SoftwareMind.Backend.Employees.API.Configurations;
+using SoftwareMind.Backend.Employees.Application.MappingProfiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
 

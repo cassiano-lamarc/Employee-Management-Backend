@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SoftwareMind.Backend.Employees.Application.DTOs;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Delete;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Update;
@@ -28,21 +29,21 @@ public class EmployeeController : BaseController
         => Ok(await _mediator.Send(createRequest));
 
     [HttpGet("{id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Domain.Entities.Employee))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EmployeeDTO))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     public async Task<IActionResult> GetById([FromRoute] string id)
         => Ok(await _mediator.Send(new GetEmployeeByIdQuery(Guid.Parse(id))));
 
     [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Domain.Entities.Employee>))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<EmployeeDTO>))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     public async Task<IActionResult> GetEmployees([FromQuery] GetEmployeeQuery getEmployeeQuery, CancellationToken cancellationToken)
         => Ok(await _mediator.Send(getEmployeeQuery));
 
     [HttpPatch]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Domain.Entities.Employee))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     public async Task<IActionResult> UpdateEmployee([FromBody] UpdateEmployeeCommand updateRequest, CancellationToken cancellationToken)

@@ -1,17 +1,26 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using MediatR;
+using SoftwareMind.Backend.Employees.Application.DTOs;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace SoftwareMind.Backend.Employees.Application.Employee.Queries.GetById;
 
-public class GetEmployeeByIdQueryHandler : IRequestHandler<GetEmployeeByIdQuery, Domain.Entities.Employee>
+public class GetEmployeeByIdQueryHandler : IRequestHandler<GetEmployeeByIdQuery, EmployeeDTO>
 {
+    private readonly IMapper _mapper;
     private readonly IEmployeeRepository _repository;
 
-    public GetEmployeeByIdQueryHandler(IEmployeeRepository repository)
+    public GetEmployeeByIdQueryHandler(
+        IMapper mapper,
+        IEmployeeRepository repository)
     {
+        _mapper = mapper;
         _repository = repository;
     }
 
-    public async Task<Domain.Entities.Employee> Handle(GetEmployeeByIdQuery request, CancellationToken cancellationToken)
-        => await _repository.GetWithIncludes(request.id);
+    public async Task<EmployeeDTO> Handle(GetEmployeeByIdQuery request, CancellationToken cancellationToken)
+        => await _repository.GetQueryById(request.id).ProjectTo<EmployeeDTO>(_mapper.ConfigurationProvider).FirstOrDefaultAsync();
+
 }

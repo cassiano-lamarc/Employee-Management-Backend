@@ -14,11 +14,11 @@ public class DeleteEmployeeCommandHandler : IRequestHandler<DeleteEmployeeComman
 
     public async Task<bool> Handle(DeleteEmployeeCommand request, CancellationToken cancellationToken)
     {
-        var employee = await _unitOfWork.Employees.GetByFilter(request.id);
-        if (employee == null || employee.Count == 0)
+        var employee = await _unitOfWork.Employees.GetByIdAsync(request.id);
+        if (employee == null)
             new ArgumentNullException("Employee not found");
 
-        _unitOfWork.Employees.Remove(employee?.FirstOrDefault()!);
+        _unitOfWork.Employees.Remove(employee!);
         await _unitOfWork.CommitAsync();
 
         return true;
