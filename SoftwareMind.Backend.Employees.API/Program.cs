@@ -4,6 +4,8 @@ using SoftwareMind.Backend.Employees.Infrasctructure.Configurations;
 using SoftwareMind.Backend.Employees.Application.Configurations;
 using SoftwareMind.Backend.Employees.API.Configurations;
 using SoftwareMind.Backend.Employees.Application.MappingProfiles;
+using SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +39,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddValidatorsFromAssemblyContaining<CreateEmployeeCommandValidator>();
 
 var app = builder.Build();
 

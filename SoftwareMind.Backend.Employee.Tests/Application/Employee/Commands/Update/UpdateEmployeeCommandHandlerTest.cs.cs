@@ -1,4 +1,6 @@
-﻿using Moq;
+﻿using FluentValidation;
+using FluentValidation.Results;
+using Moq;
 using SoftwareMind.Backend.Employees.Application.Employee.Commands.Update;
 using SoftwareMind.Backend.Employees.Domain.Exceptions;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
@@ -11,6 +13,7 @@ public class UpdateEmployeeCommandHandlerTest
 {
     private readonly Mock<IUnitOfWork> _unitOfWorkMock = new();
     private readonly Mock<ICurrentUserService> _currentUserService = new();
+    private readonly Mock<IValidator<UpdateEmployeeCommand>> _validatorMock = new();
 
     [Fact(DisplayName = "Should Update Employee Department")]
     public async Task Handle_ShouldUpdateEmployee()
@@ -18,7 +21,8 @@ public class UpdateEmployeeCommandHandlerTest
         //Arrange
         var employeeRequestId = Guid.NewGuid();
         var command = new UpdateEmployeeCommand(employeeRequestId, Guid.NewGuid());
-        var handler = new UpdateEmployeeCommandHandler(_unitOfWorkMock.Object, _currentUserService.Object);
+        _validatorMock.Setup(v => v.ValidateAsync(command, It.IsAny<CancellationToken>())).ReturnsAsync(new ValidationResult());
+        var handler = new UpdateEmployeeCommandHandler(_unitOfWorkMock.Object, _currentUserService.Object, _validatorMock.Object);
 
         var employeeMock = Domain.Entities.Employee.Create("fist", "last", "phone", Guid.NewGuid(), Guid.NewGuid(), DateTime.UtcNow);
         _unitOfWorkMock.Setup(u => u.Employees.GetByIdAsync(employeeRequestId)).ReturnsAsync(employeeMock);
@@ -37,7 +41,8 @@ public class UpdateEmployeeCommandHandlerTest
         //Arrange
         var employeeRequestId = Guid.NewGuid();
         var command = new UpdateEmployeeCommand(employeeRequestId, Guid.NewGuid());
-        var handler = new UpdateEmployeeCommandHandler(_unitOfWorkMock.Object, _currentUserService.Object);
+        _validatorMock.Setup(v => v.ValidateAsync(command, It.IsAny<CancellationToken>())).ReturnsAsync(new ValidationResult());
+        var handler = new UpdateEmployeeCommandHandler(_unitOfWorkMock.Object, _currentUserService.Object, _validatorMock.Object);
 
         var employeeMock = Domain.Entities.Employee.Create("fist", "last", "phone", Guid.NewGuid(), Guid.NewGuid(), DateTime.UtcNow);
         _unitOfWorkMock.Setup(u => u.Employees.GetByIdAsync(Guid.Empty)).ReturnsAsync(employeeMock);

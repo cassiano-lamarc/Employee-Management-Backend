@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using SoftwareMind.Backend.Employees.Domain.Exceptions;
 using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
 
@@ -7,14 +8,20 @@ namespace SoftwareMind.Backend.Employees.Application.Employee.Commands.Delete;
 public class DeleteEmployeeCommandHandler : IRequestHandler<DeleteEmployeeCommand, bool>
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IValidator<DeleteEmployeeCommand> _validator;
 
-    public DeleteEmployeeCommandHandler(IUnitOfWork unitOfWork)
+    public DeleteEmployeeCommandHandler(IUnitOfWork unitOfWork, IValidator<DeleteEmployeeCommand> validator)
     {
+        _validator = validator;
         _unitOfWork = unitOfWork;
     }
 
     public async Task<bool> Handle(DeleteEmployeeCommand request, CancellationToken cancellationToken)
     {
+        var validationResult = await _validator.ValidateAsync(request);
+        if (!validationResult.IsValid)
+            throw new BusinessException(string.Join(",", validationResult.Errors.Select(e => e.ErrorMessage).ToList()));
+
         var employee = await _unitOfWork.Employees.GetByIdAsync(request.id);
         if (employee == null)
             throw new BusinessException("Employee not found");

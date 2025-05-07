@@ -37,7 +37,7 @@ public class Employee
         UpdatedUserId = updatedUserId;
 
         if (string.IsNullOrWhiteSpace(firstName)) throw new BusinessException("First name is required");
-        if (departmentId == Guid.Empty) throw new BusinessException("Department is required");
+        if (departmentId == Guid.Empty) throw new BusinessException("Department is required");  
     }
 
 
