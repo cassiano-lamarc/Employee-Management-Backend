@@ -1,6 +1,4 @@
-# SoftwareMind.Backend.Employees
-
-Employees Management API (.NET 9)
+# Employees Management API (.NET 9)
 
 This is a RESTful API built with .NET 9 for managing employee data. The project follows Clean Architecture principles and includes authentication using JWT, PostgreSQL for data persistence, and is structured with CQRS, MediatR, Repository Pattern, Unit of Work, and Dependency Injection. Unit tests are implemented using xUnit.
 
