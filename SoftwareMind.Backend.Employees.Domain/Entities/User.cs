@@ -1,4 +1,4 @@
-﻿namespace SoftwareMind.Backend.Employees.Domain.Entities;
+﻿namespace Domain.Entities;
 
 public class User
 {

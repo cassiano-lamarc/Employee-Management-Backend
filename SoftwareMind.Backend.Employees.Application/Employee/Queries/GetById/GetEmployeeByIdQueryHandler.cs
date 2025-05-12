@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
-using SoftwareMind.Backend.Employees.Application.DTOs;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
+using Application.DTOs;
+using Domain.Interfaces.RepositoryInterfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace SoftwareMind.Backend.Employees.Application.Employee.Queries.GetById;
+namespace Application.Employee.Queries.GetById;
 
 public class GetEmployeeByIdQueryHandler : IRequestHandler<GetEmployeeByIdQuery, EmployeeDTO>
 {

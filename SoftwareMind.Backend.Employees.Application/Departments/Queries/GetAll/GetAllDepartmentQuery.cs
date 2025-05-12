@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using SoftwareMind.Backend.Employees.Domain.Entities;
+using Domain.Entities;
 
-namespace SoftwareMind.Backend.Employees.Application.Departments.Queries.GetAll;
+namespace Application.Departments.Queries.GetAll;
 
 public record GetAllDepartmentQuery() : IRequest<IEnumerable<Department>>;

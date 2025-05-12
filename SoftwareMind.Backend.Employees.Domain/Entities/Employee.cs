@@ -1,7 +1,7 @@
-﻿using SoftwareMind.Backend.Employees.Domain.Exceptions;
-using SoftwareMind.Backend.Employees.Domain.ObjectValue;
+﻿using Domain.Exceptions;
+using Domain.ObjectValue;
 
-namespace SoftwareMind.Backend.Employees.Domain.Entities;
+namespace Domain.Entities;
 
 public class Employee
 {

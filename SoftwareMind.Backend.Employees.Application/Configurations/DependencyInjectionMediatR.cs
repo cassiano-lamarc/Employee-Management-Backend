@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
+using Application.Employee.Commands.Create;
 
-namespace SoftwareMind.Backend.Employees.Application.Configurations;
+namespace Application.Configurations;
 
 public static class DependencyInjectionMediatR
 {

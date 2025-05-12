@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SoftwareMind.Backend.Employees.Application.Departments.Queries.GetAll;
-using SoftwareMind.Backend.Employees.Domain.Entities;
+using Application.Departments.Queries.GetAll;
+using Domain.Entities;
 
-namespace SoftwareMind.Backend.Employees.API.Controllers;
+namespace API.Controllers;
 
 public class DepartmentController : BaseController
 {

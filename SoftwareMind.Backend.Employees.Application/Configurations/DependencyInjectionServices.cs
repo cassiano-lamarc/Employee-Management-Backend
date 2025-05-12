@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SoftwareMind.Backend.Employees.Application.Services;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
+using Application.Services;
+using Domain.Interfaces.ServiceInterfaces;
 
-namespace SoftwareMind.Backend.Employees.Application.Configurations;
+namespace Application.Configurations;
 
 public static class DependencyInjectionServices
 {

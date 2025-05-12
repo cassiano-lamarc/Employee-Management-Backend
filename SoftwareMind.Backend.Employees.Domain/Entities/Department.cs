@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace SoftwareMind.Backend.Employees.Domain.Entities;
+namespace Domain.Entities;
 
 public class Department
 {

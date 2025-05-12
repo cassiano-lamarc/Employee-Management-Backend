@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using Moq;
-using SoftwareMind.Backend.Employees.Application.Employee.Commands.Delete;
-using SoftwareMind.Backend.Employees.Domain.Exceptions;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
+using Application.Employee.Commands.Delete;
+using Domain.Exceptions;
+using Domain.Interfaces.RepositoryInterfaces;
 using Xunit;
 
-namespace SoftwareMind.Backend.Employees.Tests.Application.Employee.Commands.Delete;
+namespace Tests.Application.Employee.Commands.Delete;
 
 public class DeleteEmployeeCommandHandlerTest
 {

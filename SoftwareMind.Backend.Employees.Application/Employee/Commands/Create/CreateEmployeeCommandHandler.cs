@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 using MediatR;
-using SoftwareMind.Backend.Employees.Domain.Exceptions;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
+using Domain.Exceptions;
+using Domain.Interfaces.RepositoryInterfaces;
+using Domain.Interfaces.ServiceInterfaces;
 
-namespace SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
+namespace Application.Employee.Commands.Create;
 
 public class CreateEmployeeCommandHandler : IRequestHandler<CreateEmployeeCommand, Guid>
 {

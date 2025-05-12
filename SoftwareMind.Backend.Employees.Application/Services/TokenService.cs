@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using SoftwareMind.Backend.Employees.Domain.DTO;
-using SoftwareMind.Backend.Employees.Domain.Entities;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
+using Domain.DTO;
+using Domain.Entities;
+using Domain.Interfaces.ServiceInterfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace SoftwareMind.Backend.Employees.Application.Services;
+namespace Application.Services;
 
 public class TokenService : ITokenService
 {

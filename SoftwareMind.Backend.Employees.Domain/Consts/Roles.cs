@@ -1,4 +1,4 @@
-﻿namespace SoftwareMind.Backend.Employees.Domain.Enums;
+﻿namespace Domain.Enums;
 
 public static class Roles
 {

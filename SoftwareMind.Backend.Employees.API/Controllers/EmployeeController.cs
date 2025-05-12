@@ -1,14 +1,14 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SoftwareMind.Backend.Employees.Application.DTOs;
-using SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
-using SoftwareMind.Backend.Employees.Application.Employee.Commands.Delete;
-using SoftwareMind.Backend.Employees.Application.Employee.Commands.Update;
-using SoftwareMind.Backend.Employees.Application.Employee.Queries.GetById;
-using SoftwareMind.Backend.Employees.Application.Employee.Queries.GetByQuery;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
+using Application.DTOs;
+using Application.Employee.Commands.Create;
+using Application.Employee.Commands.Delete;
+using Application.Employee.Commands.Update;
+using Application.Employee.Queries.GetById;
+using Application.Employee.Queries.GetByQuery;
+using Domain.Interfaces.ServiceInterfaces;
 
-namespace SoftwareMind.Backend.Employees.API.Controllers;
+namespace API.Controllers;
 
 public class EmployeeController : BaseController
 {

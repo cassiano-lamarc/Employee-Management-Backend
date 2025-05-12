@@ -1,4 +1,4 @@
-﻿namespace SoftwareMind.Backend.Employees.Domain.DTO;
+﻿namespace Domain.DTO;
 
 public class LoginRequestDTO
 {

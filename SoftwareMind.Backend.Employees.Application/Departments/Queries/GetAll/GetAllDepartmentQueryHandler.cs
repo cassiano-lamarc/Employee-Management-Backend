@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SoftwareMind.Backend.Employees.Domain.Entities;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
+using Domain.Entities;
+using Domain.Interfaces.RepositoryInterfaces;
 
-namespace SoftwareMind.Backend.Employees.Application.Departments.Queries.GetAll;
+namespace Application.Departments.Queries.GetAll;
 
 public class GetAllDepartmentQueryHandler : IRequestHandler<GetAllDepartmentQuery, IEnumerable<Department>>
 {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
+using Domain.Interfaces.ServiceInterfaces;
 using System.Security.Claims;
 
-namespace SoftwareMind.Backend.Employees.Application.Services;
+namespace Application.Services;
 
 public class CurrentUserService : ICurrentUserService
 {

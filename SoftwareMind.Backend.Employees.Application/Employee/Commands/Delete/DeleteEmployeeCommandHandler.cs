@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
 using MediatR;
-using SoftwareMind.Backend.Employees.Domain.Exceptions;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
+using Domain.Exceptions;
+using Domain.Interfaces.RepositoryInterfaces;
 
-namespace SoftwareMind.Backend.Employees.Application.Employee.Commands.Delete;
+namespace Application.Employee.Commands.Delete;
 
 public class DeleteEmployeeCommandHandler : IRequestHandler<DeleteEmployeeCommand, bool>
 {

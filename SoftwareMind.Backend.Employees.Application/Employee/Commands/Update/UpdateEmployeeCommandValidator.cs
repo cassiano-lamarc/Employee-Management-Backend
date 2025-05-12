@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace SoftwareMind.Backend.Employees.Application.Employee.Commands.Update;
+namespace Application.Employee.Commands.Update;
 
 public class UpdateEmployeeCommandValidator: AbstractValidator<UpdateEmployeeCommand>
 {

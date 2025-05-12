@@ -1,13 +1,13 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using Moq;
-using SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
-using SoftwareMind.Backend.Employees.Domain.Exceptions;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
+using Application.Employee.Commands.Create;
+using Domain.Exceptions;
+using Domain.Interfaces.RepositoryInterfaces;
+using Domain.Interfaces.ServiceInterfaces;
 using Xunit;
 
-namespace SoftwareMind.Backend.Employees.Tests.Application.Employee.Commands.Create;
+namespace Tests.Application.Employee.Commands.Create;
 
 public class CreateEmployeerCommandHandlerTest
 {

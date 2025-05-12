@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
-using SoftwareMind.Backend.Employees.Domain.Entities;
-using SoftwareMind.Backend.Employees.Domain.Exceptions;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
+using Domain.Entities;
+using Domain.Exceptions;
+using Domain.Interfaces.RepositoryInterfaces;
+using Domain.Interfaces.ServiceInterfaces;
 
-namespace SoftwareMind.Backend.Employees.Application.Services;
+namespace Application.Services;
 
 public class UploadFileService : IUploadFileService
 {

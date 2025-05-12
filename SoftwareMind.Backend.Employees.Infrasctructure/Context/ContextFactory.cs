@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using SoftwareMind.Backend.Employees.Infrasctructure.Context;
+using Infrasctructure.Context;
 
 public class ContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {

@@ -1,4 +1,4 @@
-﻿namespace SoftwareMind.Backend.Employees.Domain.Exceptions;
+﻿namespace Domain.Exceptions;
 
 public class BusinessException : Exception
 {

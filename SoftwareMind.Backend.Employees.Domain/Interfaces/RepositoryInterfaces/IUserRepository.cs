@@ -1,7 +1,7 @@
-﻿using SoftwareMind.Backend.Employees.Domain.DTO;
-using SoftwareMind.Backend.Employees.Domain.Entities;
+﻿using Domain.DTO;
+using Domain.Entities;
 
-namespace SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
+namespace Domain.Interfaces.RepositoryInterfaces;
 
 public interface IUserRepository : IBaseRepository<User>
 {

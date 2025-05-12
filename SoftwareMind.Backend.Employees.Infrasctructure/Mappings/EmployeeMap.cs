@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SoftwareMind.Backend.Employees.Domain.Entities;
+using Domain.Entities;
 
-namespace SoftwareMind.Backend.Employees.Infrasctructure.Mappings;
+namespace Infrasctructure.Mappings;
 
 public class EmployeeMap : IEntityTypeConfiguration<Employee>
 {

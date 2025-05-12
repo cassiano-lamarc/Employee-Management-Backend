@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SoftwareMind.Backend.Employees.Domain\SoftwareMind.Backend.Employees.Domain.csproj" />
+    <ProjectReference Include="..\SoftwareMind.Backend.Employees.Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

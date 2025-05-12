@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace SoftwareMind.Backend.Employees.Infrasctructure.Migrations
+namespace Infrasctructure.Migrations
 {
     /// <inheritdoc />
     public partial class UserRelationships : Migration

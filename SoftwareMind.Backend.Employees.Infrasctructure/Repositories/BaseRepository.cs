@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
-using SoftwareMind.Backend.Employees.Infrasctructure.Context;
+using Domain.Interfaces.RepositoryInterfaces;
+using Infrasctructure.Context;
 
-namespace SoftwareMind.Backend.Employees.Infrasctructure.Repositories;
+namespace Infrasctructure.Repositories;
 
 public class BaseRepository<T> : IBaseRepository<T> where T : class
 {

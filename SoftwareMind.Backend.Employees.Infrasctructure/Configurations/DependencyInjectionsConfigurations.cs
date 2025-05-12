@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
-using SoftwareMind.Backend.Employees.Infrasctructure.Repositories.UnitOfWork;
-using SoftwareMind.Backend.Employees.Infrasctructure.Repositories;
+using Domain.Interfaces.RepositoryInterfaces;
+using Infrasctructure.Repositories.UnitOfWork;
+using Infrasctructure.Repositories;
 
-namespace SoftwareMind.Backend.Employees.Infrasctructure.Configurations;
+namespace Infrasctructure.Configurations;
 
 public static class DependencyInjectionsConfigurations
 {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using SoftwareMind.Backend.Employees.Domain.Exceptions;
+using Domain.Exceptions;
 
-namespace SoftwareMind.Backend.Employees.API.Configurations;
+namespace API.Configurations;
 
 public sealed class GlobalExceptionHandler : IExceptionHandler
 {

@@ -1,6 +1,6 @@
-﻿using SoftwareMind.Backend.Employees.Domain.Entities;
+﻿using Domain.Entities;
 
-namespace SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
+namespace Domain.Interfaces.RepositoryInterfaces;
 
 public interface IEmployeeRepository : IBaseRepository<Employee>
 {

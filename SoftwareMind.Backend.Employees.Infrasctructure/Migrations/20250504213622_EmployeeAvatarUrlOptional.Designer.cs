@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using SoftwareMind.Backend.Employees.Infrasctructure.Context;
+using Infrasctructure.Context;
 
 #nullable disable
 
-namespace SoftwareMind.Backend.Employees.Infrasctructure.Migrations
+namespace Infrasctructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20250504213622_EmployeeAvatarUrlOptional")]
@@ -25,7 +25,7 @@ namespace SoftwareMind.Backend.Employees.Infrasctructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("SoftwareMind.Backend.Employees.Domain.Entities.Department", b =>
+            modelBuilder.Entity("Domain.Entities.Department", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace SoftwareMind.Backend.Employees.Infrasctructure.Migrations
                     b.ToTable("Department", (string)null);
                 });
 
-            modelBuilder.Entity("SoftwareMind.Backend.Employees.Domain.Entities.Employee", b =>
+            modelBuilder.Entity("Domain.Entities.Employee", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -96,7 +96,7 @@ namespace SoftwareMind.Backend.Employees.Infrasctructure.Migrations
                     b.ToTable("Employee", (string)null);
                 });
 
-            modelBuilder.Entity("SoftwareMind.Backend.Employees.Domain.Entities.User", b =>
+            modelBuilder.Entity("Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -126,25 +126,25 @@ namespace SoftwareMind.Backend.Employees.Infrasctructure.Migrations
                     b.ToTable("UserLogin", (string)null);
                 });
 
-            modelBuilder.Entity("SoftwareMind.Backend.Employees.Domain.Entities.Employee", b =>
+            modelBuilder.Entity("Domain.Entities.Employee", b =>
                 {
-                    b.HasOne("SoftwareMind.Backend.Employees.Domain.Entities.User", "CreatedUser")
+                    b.HasOne("Domain.Entities.User", "CreatedUser")
                         .WithMany("CreatedEmployees")
                         .HasForeignKey("CreatedUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SoftwareMind.Backend.Employees.Domain.Entities.Department", "Department")
+                    b.HasOne("Domain.Entities.Department", "Department")
                         .WithMany("Employees")
                         .HasForeignKey("DeparmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SoftwareMind.Backend.Employees.Domain.Entities.User", "UpdatedUser")
+                    b.HasOne("Domain.Entities.User", "UpdatedUser")
                         .WithMany("UpdatedEmployees")
                         .HasForeignKey("UpdatedUserId");
 
-                    b.OwnsOne("SoftwareMind.Backend.Employees.Domain.ObjectValue.Address", "Addresss", b1 =>
+                    b.OwnsOne("Domain.ObjectValue.Address", "Addresss", b1 =>
                         {
                             b1.Property<Guid>("EmployeeId")
                                 .ValueGeneratedOnAdd()
@@ -184,12 +184,12 @@ namespace SoftwareMind.Backend.Employees.Infrasctructure.Migrations
                     b.Navigation("UpdatedUser");
                 });
 
-            modelBuilder.Entity("SoftwareMind.Backend.Employees.Domain.Entities.Department", b =>
+            modelBuilder.Entity("Domain.Entities.Department", b =>
                 {
                     b.Navigation("Employees");
                 });
 
-            modelBuilder.Entity("SoftwareMind.Backend.Employees.Domain.Entities.User", b =>
+            modelBuilder.Entity("Domain.Entities.User", b =>
                 {
                     b.Navigation("CreatedEmployees");
 

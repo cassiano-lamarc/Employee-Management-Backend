@@ -21,9 +21,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\SoftwareMind.Backend.Employees.Application\SoftwareMind.Backend.Employees.Application.csproj" />
-		<ProjectReference Include="..\SoftwareMind.Backend.Employees.Domain\SoftwareMind.Backend.Employees.Domain.csproj" />
-		<ProjectReference Include="..\SoftwareMind.Backend.Employees.Infrasctructure\SoftwareMind.Backend.Employees.Infrasctructure.csproj" />
+		<ProjectReference Include="..\SoftwareMind.Backend.Employees.Application\Application.csproj" />
+		<ProjectReference Include="..\SoftwareMind.Backend.Employees.Domain\Domain.csproj" />
+		<ProjectReference Include="..\SoftwareMind.Backend.Employees.Infrasctructure\Infrasctructure.csproj" />
 	</ItemGroup>
 
 </Project>

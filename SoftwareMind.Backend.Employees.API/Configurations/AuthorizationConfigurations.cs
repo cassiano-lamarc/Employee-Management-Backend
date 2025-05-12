@@ -2,7 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace SoftwareMind.Backend.Employees.API.Configurations;
+namespace API.Configurations;
 
 public static class AuthorizationConfigurations
 {

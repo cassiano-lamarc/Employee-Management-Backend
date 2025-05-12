@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SoftwareMind.Backend.Employees.Domain.DTO;
-using SoftwareMind.Backend.Employees.Domain.Entities;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
-using SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
+using Domain.DTO;
+using Domain.Entities;
+using Domain.Interfaces.RepositoryInterfaces;
+using Domain.Interfaces.ServiceInterfaces;
 
-namespace SoftwareMind.Backend.Employees.API.Controllers;
+namespace API.Controllers;
 
 public class AuthController : BaseController
 {

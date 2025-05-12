@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace SoftwareMind.Backend.Employees.Application.Employee.Commands.Delete;
+namespace Application.Employee.Commands.Delete;
 
 public class DeleteEmployeeCommandValidator : AbstractValidator<DeleteEmployeeCommand>
 {

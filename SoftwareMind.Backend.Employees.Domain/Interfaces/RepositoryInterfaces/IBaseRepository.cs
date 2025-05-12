@@ -1,4 +1,4 @@
-﻿namespace SoftwareMind.Backend.Employees.Domain.Interfaces.RepositoryInterfaces;
+﻿namespace Domain.Interfaces.RepositoryInterfaces;
 
 public interface IBaseRepository<T> where T : class
 {

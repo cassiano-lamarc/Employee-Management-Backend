@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace SoftwareMind.Backend.Employees.API.Configurations;
+namespace API.Configurations;
 
 public static class SwaggerConfigurations
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace SoftwareMind.Backend.Employees.Infrasctructure.Context;
+namespace Infrasctructure.Context;
 
 public class AppDbContext : DbContext
 {

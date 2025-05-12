@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace SoftwareMind.Backend.Employees.Infrasctructure.Migrations
+namespace Infrasctructure.Migrations
 {
     /// <inheritdoc />
     public partial class EmployeeAvatarUrlOptional : Migration

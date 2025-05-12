@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using SoftwareMind.Backend.Employees.Application.DTOs;
+using Application.DTOs;
 
-namespace SoftwareMind.Backend.Employees.Application.MappingProfiles;
+namespace Application.MappingProfiles;
 
 public class MappingProfile : Profile
 {

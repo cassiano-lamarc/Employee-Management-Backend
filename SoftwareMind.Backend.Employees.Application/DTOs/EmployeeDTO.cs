@@ -1,6 +1,6 @@
-﻿using SoftwareMind.Backend.Employees.Domain.ObjectValue;
+﻿using Domain.ObjectValue;
 
-namespace SoftwareMind.Backend.Employees.Application.DTOs;
+namespace Application.DTOs;
 
 public class EmployeeDTO
 {

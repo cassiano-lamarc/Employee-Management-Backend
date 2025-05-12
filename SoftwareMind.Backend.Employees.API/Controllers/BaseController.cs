@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SoftwareMind.Backend.Employees.API.Controllers;
+namespace API.Controllers;
 
 [Authorize]
 [ApiController]

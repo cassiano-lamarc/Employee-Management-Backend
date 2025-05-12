@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using SoftwareMind.Backend.Employees.Infrasctructure.Context;
-using SoftwareMind.Backend.Employees.Infrasctructure.Configurations;
-using SoftwareMind.Backend.Employees.Application.Configurations;
-using SoftwareMind.Backend.Employees.API.Configurations;
-using SoftwareMind.Backend.Employees.Application.MappingProfiles;
-using SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
+using Infrasctructure.Context;
+using Infrasctructure.Configurations;
+using Application.Configurations;
+using API.Configurations;
+using Application.MappingProfiles;
+using Application.Employee.Commands.Create;
 using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);

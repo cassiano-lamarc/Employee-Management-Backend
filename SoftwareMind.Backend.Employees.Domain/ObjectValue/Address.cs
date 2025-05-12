@@ -1,4 +1,4 @@
-﻿namespace SoftwareMind.Backend.Employees.Domain.ObjectValue;
+﻿namespace Domain.ObjectValue;
 
 public class Address
 {

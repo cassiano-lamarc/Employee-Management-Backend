@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace SoftwareMind.Backend.Employees.Domain.Interfaces.ServiceInterfaces;
+namespace Domain.Interfaces.ServiceInterfaces;
 
 public interface IUploadFileService
 {

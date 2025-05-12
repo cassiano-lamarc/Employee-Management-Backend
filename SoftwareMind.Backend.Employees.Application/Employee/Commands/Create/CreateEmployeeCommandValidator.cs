@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace SoftwareMind.Backend.Employees.Application.Employee.Commands.Create;
+namespace Application.Employee.Commands.Create;
 
 public class CreateEmployeeCommandValidator : AbstractValidator<CreateEmployeeCommand>
 {
